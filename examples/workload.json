@@ -1,0 +1,9 @@
+{
+  "task": "classify",
+  "input_tokens": 10000,
+  "max_output_tokens": 1000,
+  "source_bytes": 1099511627776,
+  "network_bytes": 0,
+  "hdd_read_bytes": 0,
+  "hdd_write_bytes": 0
+}

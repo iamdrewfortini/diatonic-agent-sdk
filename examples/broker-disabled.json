@@ -1,0 +1,7 @@
+{
+  "enabled": false,
+  "gateway_id": "bifrost",
+  "tenant": "estate",
+  "bootstrap_credential_name": "onepassword-service-account",
+  "secret_bindings": []
+}

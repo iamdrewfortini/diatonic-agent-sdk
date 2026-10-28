@@ -1,0 +1,40 @@
+{
+  "fixture_sha256": "5de1c6556f8d18e59642f9a12e766521db07dcd90b765d14f21fb3cdca7aa3bd",
+  "provenance": {
+    "authority": "synthetic fixture included in this repository",
+    "kind": "reference_fixture",
+    "source_ref": "examples/contract-fixtures.json",
+    "source_sha256": "23c5c45de21af148dc96ee64c7e6bebbb5f2ada63f3cc0d225a975f013844e53"
+  },
+  "records": [
+    {
+      "abstain_reason": null,
+      "canonical_value": "{\"offset\":32}",
+      "case_id": "first-page",
+      "decision": "committed",
+      "input_sha256": "a6d9cdad0a5b39a9e542ba45ac4ca429dfaffbf494fc21643e96a1a441d529a2",
+      "task_route": {
+        "implementation_sha256": "3ea9644f85321e0574e63468b3b0dfd203be611121d9339abe087664829ecb7c",
+        "mechanism": "rule_only",
+        "model_id": null,
+        "route_id": "exact-schema",
+        "task_id": "inspect_evidence"
+      }
+    },
+    {
+      "abstain_reason": "unknown_input",
+      "canonical_value": null,
+      "case_id": "unspecified",
+      "decision": "abstain",
+      "input_sha256": "c9899e1f04551ddc55c2d0f29661a15a78222f78799ab53e34c842a94e527bc2",
+      "task_route": {
+        "implementation_sha256": "3ea9644f85321e0574e63468b3b0dfd203be611121d9339abe087664829ecb7c",
+        "mechanism": "rule_only",
+        "model_id": null,
+        "route_id": "exact-schema",
+        "task_id": "inspect_evidence"
+      }
+    }
+  ],
+  "replay_id": "regression"
+}

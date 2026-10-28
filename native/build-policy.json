@@ -1,0 +1,12 @@
+{
+  "version": "native-cell-policy-v1",
+  "maximum_nonblank_lines_per_cell": 400,
+  "maximum_public_operations_per_cell": 6,
+  "maximum_direct_dependencies_per_cell": 8,
+  "maximum_stripped_library_bytes": 2097152,
+  "require_exact_host_independent_benchmark": true,
+  "require_equal_correctness_coverage_and_verification": true,
+  "default_implementation": "python",
+  "arbitrary_build_hooks_permitted": false,
+  "compile_status": "isolated AlmaLinux10.2 build and two Rust tests passed; Python FFI and independent speed benchmark pending"
+}

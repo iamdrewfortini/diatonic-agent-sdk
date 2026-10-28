@@ -1,0 +1,3 @@
+{"scope":"synthetic","name":"report.pdf","rse":"TEST_SOURCE","bytes":100,"sha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","checksum_kind":"full","source_mutable":false,"application_consistent":false,"live_database":false,"containment":false}
+{"scope":"synthetic","name":"report-copy.pdf","rse":"TEST_SOURCE","bytes":100,"sha256":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","checksum_kind":"full","source_mutable":false,"application_consistent":false,"live_database":false,"containment":false}
+{"scope":"synthetic","name":"unknown.bin","rse":"TEST_SOURCE","bytes":1024,"sha256":null,"checksum_kind":"unknown","source_mutable":true,"application_consistent":false,"live_database":false,"containment":false}

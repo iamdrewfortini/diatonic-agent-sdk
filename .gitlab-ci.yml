@@ -1,0 +1,20 @@
+stages: [verify]
+sdk-test-and-package:
+  stage: verify
+  image: python:3.12-bookworm
+  tags: [k8s]
+  script:
+    - python -m venv .venv
+    - .venv/bin/python -m pip install --require-hashes -r requirements-ci.lock
+    - .venv/bin/python -m pip wheel --no-index --no-deps --no-build-isolation --wheel-dir dist .
+    - .venv/bin/python -m pip install --no-index --no-deps dist/*.whl
+    - .venv/bin/python -m pip check
+    - .venv/bin/python native/validate_cells.py
+    - PYTHONPATH=src .venv/bin/python -m pytest -q --junitxml=source-tests.xml
+    - .venv/bin/python -m pytest -q --junitxml=wheel-tests.xml
+    - .venv/bin/meta-pipeline --help
+  artifacts:
+    when: always
+    paths: [dist/, source-tests.xml, wheel-tests.xml]
+    reports:
+      junit: [source-tests.xml, wheel-tests.xml]

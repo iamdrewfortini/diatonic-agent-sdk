@@ -1,0 +1,36 @@
+{
+  "version": "native-cell-policy-v1",
+  "cells": [
+    {
+      "id": "stam-codec",
+      "responsibility": "encode existing 39-symbol STAM opcode profile into ten bytes",
+      "nonblank_lines": 39,
+      "public_operations": [
+        "pack_profile"
+      ],
+      "direct_dependencies": 0,
+      "source_sha256": "5013a6753234116717e9fa35314bb67afb569178679d2d0c54d8a007e3ac351d",
+      "schema_sha256": "2211efaf9b800395a38643a0646355f6ec02102e3d36e4a028a3cc20fc96057b",
+      "status": "pending_compile_and_exact_host_benchmark",
+      "speedup_claim": null
+    }
+  ],
+  "source_validation": "passed",
+  "native_activation": "pending independent exact-host same-coverage benchmark",
+  "host_planning_tests": {
+    "tests": 13,
+    "passed": 13,
+    "failures": 0,
+    "skips": 0
+  },
+  "source_locks": {
+    "host_packaging.py": "3165e2b05b2c5566d5aede808223de48f70bdf0643fdd1356f35de3f6d122917",
+    "maintenance.py": "2b6a96b1bf5f12eaacfdf25208a97431415bca261e4f66db7927f647bc960c3d"
+  },
+  "actual_host_observation": "metal01-host-observation.json",
+  "host_observation_admission": "pending host signing identity and native shared reservation authority",
+  "compiler_status": {
+    "rust": "not installed/registered; compilation pending",
+    "python_to_c": "no registered toolchain or independently verified artifact; pending"
+  }
+}

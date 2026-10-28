@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"STAM codec v1","type":"object","additionalProperties":false,"required":["profile_symbols"],"properties":{"profile_symbols":{"type":"string","pattern":"^[STAM]{39}$"}},"output":{"type":"string","pattern":"^[0-3][0-9a-f]{19}$"},"evidence":"encoding consistency only; no task execution or proof"}

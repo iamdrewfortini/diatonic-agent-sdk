@@ -1,0 +1,1983 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-10-28T12:01:21.194053+00:00",
+  "purpose": "Documented possibility and proposed execution assembly; never a blanket assertion of production readiness.",
+  "source_corpus": {
+    "manifest": "vendor/meta-docs/manifest.json",
+    "fetched_at_utc": "2026-10-28T10:05:37Z",
+    "pages": 154,
+    "fetched_pages": 154,
+    "all_hashes_verified": true,
+    "supplied_schema_lock": "deploy/schema-lock.json"
+  },
+  "readiness_dimensions": [
+    "documented",
+    "gateway_configured",
+    "worker_execution_verified",
+    "execution_ready"
+  ],
+  "readiness_meaning": {
+    "documented": "published official capability",
+    "gateway_configured": "matching provider/model/route is configured",
+    "worker_execution_verified": "only the named recorded synthetic worker-path scope",
+    "execution_ready": "the complete intended production case is proven and activated; not inferred from a fixture"
+  },
+  "deployment_facts": {
+    "gateway": "existing inference/bifrost",
+    "rollout_and_auth_acceptance_verified": true,
+    "image_digest": "sha256:c682616c453542fb6e9b854baee708ae2c50c4f9c9b1a118cefbaa74a39df09f",
+    "ready_replicas": 2,
+    "updated_replicas": 2,
+    "authentication_checks": [
+      {
+        "name": "scoped_models",
+        "http": 200,
+        "models": [
+          "meta/muse-image-1.0",
+          "meta/muse-spark-1.1",
+          "meta/muse-spark-1.2",
+          "meta/muse-spark-1.2-contributor",
+          "meta/muse-spark-1.3",
+          "meta/muse-spark-1.3-contributor",
+          "meta/muse-voice-transcribe-1.0",
+          "meta/muse-wonder-1.0",
+          "meta/sam-3.1"
+        ]
+      },
+      {
+        "name": "admin_denied",
+        "http": 401
+      },
+      {
+        "name": "missing_key",
+        "http": 401
+      },
+      {
+        "name": "invalid_key",
+        "http": 401
+      },
+      {
+        "name": "unallowed_model",
+        "http": 403
+      }
+    ],
+    "hosted_ids_configured": 9,
+    "worker_state": "scoped_chat_fixture_verified",
+    "admin_keys_in_worker": false,
+    "new_gateway_required": false,
+    "evidence": [
+      {
+        "file": "deploy/bifrost-runtime-proof.json",
+        "present": true,
+        "sha256": "70ee3598420d015ec834788cbcba03043162e7024db14cc9acf2de770923de3c"
+      },
+      {
+        "file": "deploy/native-minimal-proof.json",
+        "present": true,
+        "sha256": "c9801b6ae5fcade1bc4131627015e2a1a1d0d3bea5a948b64fe4e820bc4bc2d2"
+      },
+      {
+        "file": "deploy/live-sdk-proof.json",
+        "present": false
+      }
+    ],
+    "historical_admin_auth_failure": {
+      "file": "deploy/live-proof.json",
+      "superseded_for_successful_scoped_call": true
+    },
+    "note": "Current scoped synthetic proof does not establish continuous worker deployment, all model entitlement, media readiness or native estate effects."
+  },
+  "framework": {
+    "selected": "upstream OpenAI Agents SDK 0.24.0",
+    "loop_owner": "upstream Runner, function tools and nested Agents",
+    "inference_backend": "Meta through the existing Bifrost provider only",
+    "wire_api": "Responses",
+    "openai_service_or_claude_fallback": false,
+    "source": {
+      "url": "https://dev.meta.ai/docs/sdks",
+      "sha256": "2373d0a5b995501a2a2b6378912a897bc2e27cdab829656f969bfa823093e993"
+    },
+    "pattern_sources": [
+      {
+        "url": "https://dev.meta.ai/docs/tool-calling",
+        "sha256": "1728aa355f6f4823cca199984764eb678965581e29ba21c21ed5b1b5e741ec6d"
+      },
+      {
+        "url": "https://dev.meta.ai/docs/protocols/responses",
+        "sha256": "3fb13cc8bbccc5d34a80679c210651f54f64368695323fcfbc26faa79775b3c4"
+      }
+    ],
+    "synthetic_live_loop_verified": false,
+    "live_evidence": {
+      "file": "deploy/live-sdk-proof.json",
+      "present": false
+    },
+    "continuous_production_worker_deployed": false,
+    "current_sdk_tools": [
+      "inspect_evidence",
+      "deploy_workflow",
+      "spawn_cell"
+    ],
+    "native_estate_effects_bound": false,
+    "future_coding_harness": {
+      "name": "installed Codex app-server",
+      "selected_as_primary": false,
+      "protocol_schema_directory": "vendor/codex-protocol",
+      "source": {
+        "url": "https://dev.meta.ai/docs/agent-frameworks",
+        "sha256": "880af88f3fd20d0a94b9b21a49f09251a6b8b7be88a4cb37372bec8c3f9b2209"
+      },
+      "status": "protocol available; not activated as the primary assembly engine"
+    },
+    "excluded_runtime": "Claude tooling remains excluded by user instruction"
+  },
+  "endpoints": [
+    {
+      "id": "DELETE /v1/files/{file_id}",
+      "method": "DELETE",
+      "path": "/v1/files/{file_id}",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/files/delete-file",
+        "sha256": "ee6a2cc97edef67f2c7cf491265995817712ee3b93dca3036dfb3ca59447d2a3"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "path_parameters": [
+        "file_id"
+      ],
+      "output_schema": "DeleteFileResponse"
+    },
+    {
+      "id": "DELETE /v1/responses/{response_id}",
+      "method": "DELETE",
+      "path": "/v1/responses/{response_id}",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/responses/delete-response",
+        "sha256": "4f447a11b79d352506f82ceec1973c9aff61e7d2ac0fa5f15f5059bb2cfe9feb"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "path_parameters": [
+        "response_id"
+      ],
+      "output_schema": "DeleteResponseResponse"
+    },
+    {
+      "id": "GET /v1/files",
+      "method": "GET",
+      "path": "/v1/files",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/files/list-files",
+        "sha256": "e0eab0ba12a869bbe38559f192559bb715476d91815e03fcb3b8949edad3f4f9"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "output_schema": "ListFilesResponse",
+      "note": "Paginated; query validation may return plain text rather than JSON error."
+    },
+    {
+      "id": "GET /v1/files/{file_id}",
+      "method": "GET",
+      "path": "/v1/files/{file_id}",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/files/retrieve-file",
+        "sha256": "d50d1ef36e8f885ab42fc903822cb169f7bc514ce8a47e91ad2166c16c24c7ee"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "path_parameters": [
+        "file_id"
+      ],
+      "output_schema": "FileObject"
+    },
+    {
+      "id": "GET /v1/files/{file_id}/content",
+      "method": "GET",
+      "path": "/v1/files/{file_id}/content",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/files/retrieve-file-content",
+        "sha256": "8627d9ce8b5dd161f303b541f7c2aacca53ffd7a7f302681b92beed783828e90"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "path_parameters": [
+        "file_id"
+      ],
+      "output_schema": "File bytes"
+    },
+    {
+      "id": "GET /v1/models",
+      "method": "GET",
+      "path": "/v1/models",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/models/list-models",
+        "sha256": "54d922a7ca43b34a941e5a71016e3f726a96753e1b7f224639d4f098a78baea6"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": true,
+        "execution_ready": false,
+        "reason": "Read current runtime/auth artifact; catalog does not prove inference entitlement for every listed ID",
+        "evidence": {
+          "file": "deploy/bifrost-runtime-proof.json",
+          "present": true,
+          "sha256": "70ee3598420d015ec834788cbcba03043162e7024db14cc9acf2de770923de3c"
+        },
+        "verification_scope": "scoped model catalog only"
+      },
+      "output_schema": "ListModelsResponse",
+      "note": "Gateway advertisement and provider team entitlement require separate verification."
+    },
+    {
+      "id": "GET /v1/models/{model}",
+      "method": "GET",
+      "path": "/v1/models/{model}",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/models/retrieve-model",
+        "sha256": "ab52d3ef79f180495542681de1859840e4db1e9d7f1d222ab16c2f6b7e3b2f96"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "path_parameters": [
+        "model"
+      ],
+      "output_schema": "Model"
+    },
+    {
+      "id": "GET /v1/responses/{response_id}",
+      "method": "GET",
+      "path": "/v1/responses/{response_id}",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/responses/retrieve-response",
+        "sha256": "9cc8bfc926d504a414df88272601faf8e7e50db0e6632faa6bfdcdf32ab24c17"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "path_parameters": [
+        "response_id"
+      ],
+      "output_schema": "Response",
+      "note": "Stored response required; store:false responses cannot be retrieved."
+    },
+    {
+      "id": "GET /v1/status",
+      "method": "GET",
+      "path": "/v1/status",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/status",
+        "sha256": "7d3aefaaef1681c474cbf36b326c0fae2496d246ba5b5e3a3fd4a5b4dc62e083"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "output_schema": "StatusResponse",
+      "authentication": "none at Meta",
+      "note": "A gateway may enforce its own authentication even for an upstream unauthenticated endpoint."
+    },
+    {
+      "id": "POST /v1/asr/transcribe",
+      "method": "POST",
+      "path": "/v1/asr/transcribe",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/voice/transcribe",
+        "sha256": "2f328572629d7ea0f5433ea6ac31d34dd69e4a0b362c72d262081e69cc6ef54f"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "required_body": [
+        "request JSON multipart part",
+        "audio binary multipart part"
+      ],
+      "request_schema": "TranscribeRequest",
+      "output_schema": "TranscribeResponse / ServerMessage / text",
+      "formats": [
+        "multipart/form-data"
+      ],
+      "note": "request.model and audioEncoding=WAV; mono integer PCM WAV at 16 or 24 kHz; response audioDurationMs is authoritative processed duration."
+    },
+    {
+      "id": "POST /v1/chat/completions",
+      "method": "POST",
+      "path": "/v1/chat/completions",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/chat-completions/create-chat-completion",
+        "sha256": "29e496bd99170005b45dd4cbac5b444a34818590a6750673e47719d8a6919a8a"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": true,
+        "execution_ready": false,
+        "reason": "Native minimal JSON fixture passed",
+        "verification_scope": "one scoped-key synthetic JSON fixture; native minimal preservation",
+        "evidence": {
+          "file": "deploy/native-minimal-proof.json",
+          "present": true,
+          "sha256": "c9801b6ae5fcade1bc4131627015e2a1a1d0d3bea5a948b64fe4e820bc4bc2d2"
+        }
+      },
+      "required_body": [
+        "model",
+        "messages"
+      ],
+      "request_schema": "CreateChatCompletionRequest",
+      "output_schema": "CreateChatCompletionResponse / stream response",
+      "formats": [
+        "application/json",
+        "text/event-stream"
+      ],
+      "note": "response_format.json_schema; max_completion_tokens counts visible and reasoning output; streamed usage requires include_usage."
+    },
+    {
+      "id": "POST /v1/files",
+      "method": "POST",
+      "path": "/v1/files",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/files/upload-file",
+        "sha256": "1c437ee773e5fdc37c394237fa5ed3f1fbe3b1398ee1dcfc12005d016fb15c9e"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "required_body": [
+        "file",
+        "purpose"
+      ],
+      "request_schema": "CreateFileRequest",
+      "output_schema": "FileObject",
+      "formats": [
+        "multipart/form-data"
+      ],
+      "note": "purpose must be user_data or batch; explicit expiration is an application policy, bounded 3600..2592000 seconds."
+    },
+    {
+      "id": "POST /v1/images/edits",
+      "method": "POST",
+      "path": "/v1/images/edits",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/images/edit-image",
+        "sha256": "2cfb325a97d8ad6ee9a674e9da2f68445efcebf4811e8c81d062c7d9d150122b"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "required_body": [
+        "model",
+        "prompt",
+        "images or image multipart part"
+      ],
+      "request_schema": "EditImageBodyJsonParam / CreateImageEditRequest",
+      "output_schema": "ImagesResponse / ImageEditStreamEvent",
+      "formats": [
+        "application/json",
+        "multipart/form-data",
+        "text/event-stream"
+      ],
+      "note": "Raw HTTP JSON images[] differs from OpenAI SDK multipart image uploads."
+    },
+    {
+      "id": "POST /v1/images/generations",
+      "method": "POST",
+      "path": "/v1/images/generations",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/images/create-image",
+        "sha256": "ee6cf4be9ace3ed017c08c699aae53a6986e4b8143cdcb6efef26c85e9e4e7e4"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "required_body": [
+        "model",
+        "prompt"
+      ],
+      "request_schema": "CreateImageRequest",
+      "output_schema": "ImagesResponse / ImageGenStreamEvent",
+      "formats": [
+        "application/json",
+        "text/event-stream"
+      ],
+      "note": "n 1..10; requested size controls aspect ratio, not exact returned resolution; output_format png/jpeg/webp."
+    },
+    {
+      "id": "POST /v1/messages",
+      "method": "POST",
+      "path": "/v1/messages",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/messages/create-message",
+        "sha256": "f21df92181ffb2e7b5625ca919a4bc44bb060961ad76a1d70159fc596c2993f1"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "required_body": [
+        "model",
+        "max_tokens",
+        "messages"
+      ],
+      "request_schema": "AnthropicMessagesRequest",
+      "output_schema": "AnthropicMessage",
+      "formats": [
+        "application/json",
+        "text/event-stream"
+      ],
+      "note": "Anthropic-compatible wire protocol does not imply a Claude backend; this project selects Meta and excludes Claude tooling."
+    },
+    {
+      "id": "POST /v1/messages/count_tokens",
+      "method": "POST",
+      "path": "/v1/messages/count_tokens",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/messages/count-tokens",
+        "sha256": "1d29293f391cd3c8f4d656d0969ec9b633729bbe5eaf8bc7aec9a9dd5b388e1d"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "required_body": [
+        "model",
+        "messages"
+      ],
+      "request_schema": "AnthropicCountTokensRequest",
+      "output_schema": "AnthropicCountTokensResponse",
+      "formats": [
+        "application/json"
+      ],
+      "note": "Counts Messages-shaped input without generating a message."
+    },
+    {
+      "id": "POST /v1/responses",
+      "method": "POST",
+      "path": "/v1/responses",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/responses/create-response",
+        "sha256": "71605da0a43f6272f306a95d6ca7ccab77bea79b577b4b6bd1bc823274edaeb7"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Live SDK loop acceptance is pending",
+        "verification_scope": "one bounded upstream SDK/tool loop with unchanged validated encrypted replay",
+        "evidence": {
+          "file": "deploy/live-sdk-proof.json",
+          "present": false
+        }
+      },
+      "required_body": [
+        "model",
+        "input"
+      ],
+      "request_schema": "CreateResponse",
+      "output_schema": "Response / ResponseStreamWireEvent",
+      "formats": [
+        "application/json",
+        "text/event-stream"
+      ],
+      "note": "Text, tools, media, stateless encrypted replay or server-managed history; endpoint-specific fields apply."
+    },
+    {
+      "id": "POST /v1/responses/input_tokens",
+      "method": "POST",
+      "path": "/v1/responses/input_tokens",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/responses/count-input-tokens",
+        "sha256": "887371fdf45894443048f690a66091ab4461bc1ac7a5c9d5cfc7dbc20119a7fc"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "required_body": [
+        "model",
+        "input"
+      ],
+      "request_schema": "TokenCountsBody",
+      "output_schema": "TokenCountsResource",
+      "formats": [
+        "application/json"
+      ],
+      "note": "Rendered context-size measurement, not an invoice or cumulative generation-usage forecast."
+    },
+    {
+      "id": "POST /v1/responses/{response_id}/cancel",
+      "method": "POST",
+      "path": "/v1/responses/{response_id}/cancel",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/responses/cancel-response",
+        "sha256": "4c42d32c9f8305a06dc68d58a7e872118403322adee1268513c80581e97807ff"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "path_parameters": [
+        "response_id"
+      ],
+      "output_schema": "CancelResponseResponse",
+      "note": "Cancellation does not erase already consumed usage."
+    },
+    {
+      "id": "WS /v1/asr/realtime",
+      "method": "WS",
+      "path": "/v1/asr/realtime",
+      "meta_base": "https://api.meta.ai",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/voice/realtime",
+        "sha256": "7143b9c61a0bec563d0a77df0c9ccbbba30e0c64efd45f1a2a16d79e9ac5a7ae"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Task-specific gateway and protocol proof required"
+      },
+      "required_body": [
+        "first-frame RealtimeHandshakeRequest",
+        "subsequent binary PCM frames"
+      ],
+      "request_schema": "RealtimeHandshakeRequest",
+      "output_schema": "RealtimeHandshakeResponse then typed ServerMessage events",
+      "formats": [
+        "WebSocket JSON frames",
+        "WebSocket binary PCM frames"
+      ],
+      "authentication": "authorization.accessToken inside first handshake, NOT HTTP Authorization",
+      "note": "Gateway must translate its scoped credential to upstream auth; never send a Bifrost VK as a Meta accessToken. End input with endStream and read through clean close."
+    }
+  ],
+  "models": [
+    {
+      "id": "muse-spark-1.3",
+      "input": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "output": "text",
+      "protocols": [
+        "responses",
+        "chat",
+        "messages"
+      ],
+      "billing": "tokens",
+      "contributor": false,
+      "default_task": "small typed reasoning cells",
+      "audio_recommended": false,
+      "context_tokens": 1048576,
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": true,
+        "execution_ready": false,
+        "reason": "Specific Spark fixture evidence; no universal output quality or other-model inference proof",
+        "verification_scope": "only the recorded synthetic Chat/Responses fixtures",
+        "evidence": [
+          {
+            "file": "deploy/native-minimal-proof.json",
+            "present": true,
+            "sha256": "c9801b6ae5fcade1bc4131627015e2a1a1d0d3bea5a948b64fe4e820bc4bc2d2"
+          },
+          {
+            "file": "deploy/live-sdk-proof.json",
+            "present": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "muse-spark-1.3-contributor",
+      "input": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "output": "text",
+      "protocols": [
+        "responses",
+        "chat",
+        "messages"
+      ],
+      "billing": "tokens",
+      "contributor": true,
+      "requires_explicit_training_opt_in": true,
+      "audio_recommended": false,
+      "context_tokens": 1048576,
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Hosted ID configured; per-model task execution and team entitlement require separate proof"
+      }
+    },
+    {
+      "id": "muse-spark-1.2",
+      "input": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "output": "text",
+      "protocols": [
+        "responses",
+        "chat",
+        "messages"
+      ],
+      "billing": "tokens",
+      "contributor": false,
+      "default_task": "small typed reasoning cells",
+      "audio_recommended": true,
+      "context_tokens": 1048576,
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Hosted ID configured; per-model task execution and team entitlement require separate proof"
+      }
+    },
+    {
+      "id": "muse-spark-1.2-contributor",
+      "input": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "output": "text",
+      "protocols": [
+        "responses",
+        "chat",
+        "messages"
+      ],
+      "billing": "tokens",
+      "contributor": true,
+      "requires_explicit_training_opt_in": true,
+      "audio_recommended": true,
+      "context_tokens": 1048576,
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Hosted ID configured; per-model task execution and team entitlement require separate proof"
+      }
+    },
+    {
+      "id": "muse-spark-1.1",
+      "input": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "output": "text",
+      "protocols": [
+        "responses",
+        "chat",
+        "messages"
+      ],
+      "billing": "tokens",
+      "contributor": false,
+      "default_task": "small typed reasoning cells",
+      "audio_recommended": true,
+      "context_tokens": 1048576,
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Hosted ID configured; per-model task execution and team entitlement require separate proof"
+      }
+    },
+    {
+      "id": "muse-wonder-1.0",
+      "input": [
+        "text",
+        "image",
+        "video",
+        "audio",
+        "pdf"
+      ],
+      "output": "text",
+      "protocols": [
+        "responses",
+        "chat",
+        "messages"
+      ],
+      "billing": "tokens",
+      "context_tokens": 1048576,
+      "default_task": "explicit complex composition, code and long-horizon work",
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Hosted ID configured; per-model task execution and team entitlement require separate proof"
+      }
+    },
+    {
+      "id": "muse-image-1.0",
+      "input": [
+        "text",
+        "image"
+      ],
+      "output": "image",
+      "protocols": [
+        "responses",
+        "images"
+      ],
+      "billing": "successful_generated_images",
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Hosted ID configured; per-model task execution and team entitlement require separate proof"
+      }
+    },
+    {
+      "id": "muse-voice-transcribe-1.0",
+      "input": [
+        "audio"
+      ],
+      "output": "transcript",
+      "protocols": [
+        "asr_transcribe",
+        "asr_realtime"
+      ],
+      "billing": "whole_audio_seconds_floor",
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Hosted ID configured; per-model task execution and team entitlement require separate proof"
+      }
+    },
+    {
+      "id": "sam-3.1",
+      "input": [
+        "text",
+        "image",
+        "video"
+      ],
+      "output": "boxes_masks_custom_token_grammar",
+      "protocols": [
+        "responses"
+      ],
+      "billing": "image_or_video_frames_minimum_50_per_video_request",
+      "parser": [
+        "meta_sam_parser",
+        "@meta-sam/parser"
+      ],
+      "source": {
+        "url": "https://dev.meta.ai/docs/models",
+        "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+      },
+      "state": {
+        "documented": true,
+        "gateway_configured": true,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "Hosted ID configured; per-model task execution and team entitlement require separate proof"
+      }
+    },
+    {
+      "family": "Muse Spark Open",
+      "hosted_model_api": false,
+      "input": [
+        "text",
+        "image",
+        "video",
+        "audio"
+      ],
+      "output": "text",
+      "billing": "self_hosted_operating_cost_unmeasured",
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "No verified serving endpoint or local hardware allocation"
+      },
+      "source": {
+        "url": "https://dev.meta.ai/docs/muse-spark-open",
+        "sha256": "4723a6213db1e6dddc76cce9a128a04c208c2bd1b624ae6e3327eb1acfbc340e"
+      }
+    },
+    {
+      "family": "Muse Glimmer",
+      "hosted_model_api": false,
+      "input": [
+        "text",
+        "image"
+      ],
+      "output": "text",
+      "billing": "self_hosted_operating_cost_unmeasured",
+      "state": {
+        "documented": true,
+        "gateway_configured": false,
+        "worker_execution_verified": false,
+        "execution_ready": false,
+        "reason": "No verified serving endpoint or local hardware allocation"
+      },
+      "source": {
+        "url": "https://dev.meta.ai/docs/muse-glimmer",
+        "sha256": "6ab25a02152f1d77085df622662fb3437685b63ede9743ddb067b5a8625d83ee"
+      }
+    }
+  ],
+  "task_cells": [
+    {
+      "id": "evidence.normalize",
+      "task": "Validate a bounded authoritative Rucio export",
+      "engine": "deterministic",
+      "minimal_input_contract": {
+        "record_ref": "opaque immutable batch reference",
+        "digest": "SHA256"
+      },
+      "output_contract": {
+        "valid": "boolean",
+        "conflicts": "bounded typed list"
+      },
+      "protocol": null,
+      "default_model": null,
+      "allowed_tools": [],
+      "validation": [
+        "schema",
+        "DID/RSE uniqueness",
+        "same-DID replica agreement",
+        "freshness/provenance caller evidence"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "deterministic recomputation; no LLM response cache",
+      "side_effect_class": "none",
+      "sources": [],
+      "note": "No model tokens. No second persistent file catalog.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "dedup.equal_content",
+      "task": "Find equal-content candidates",
+      "engine": "deterministic",
+      "minimal_input_contract": {
+        "size_bytes": "integer",
+        "full_sha256": "hex64",
+        "immutable_snapshot": "boolean",
+        "application_consistency": "evidence ref"
+      },
+      "output_contract": {
+        "candidate_group_refs": "bounded list",
+        "potential_bytes": "integer"
+      },
+      "protocol": null,
+      "default_model": null,
+      "allowed_tools": [],
+      "validation": [
+        "full checksum and size",
+        "exclude mutable/live inconsistent data",
+        "same DID replicas are not extra logical duplicates"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "deterministic recomputation; no LLM response cache",
+      "side_effect_class": "none",
+      "sources": [],
+      "note": "Names, fast fingerprints and model confidence do not prove byte equality. Candidate is not deletion authority.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "storage.admission",
+      "task": "Forecast bounded temporary staging and reserve headroom",
+      "engine": "deterministic",
+      "minimal_input_contract": {
+        "source_bytes": "integer",
+        "fresh_free_bytes": "integer",
+        "caps_ref": "validated policy ref"
+      },
+      "output_contract": {
+        "admit": "boolean",
+        "stage_bytes": "typed counters",
+        "ideal_seconds": "derived lower bound"
+      },
+      "protocol": null,
+      "default_model": null,
+      "allowed_tools": [],
+      "validation": [
+        "existing caps preserved",
+        "100 GiB reserve",
+        "fresh target capacity",
+        "one active HDD staging job policy"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "deterministic recomputation; no LLM response cache",
+      "side_effect_class": "none",
+      "sources": [],
+      "note": "Does not stop an already running job or create a retention schedule.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "classify.metadata",
+      "task": "Classify only unresolved metadata",
+      "engine": "sdk_single_call",
+      "minimal_input_contract": {
+        "id": "opaque ID",
+        "extension": "bounded string",
+        "bytes": "integer"
+      },
+      "output_contract": {
+        "id": "same ID",
+        "label": "closed enum",
+        "confidence": "unverified model score"
+      },
+      "protocol": "chat",
+      "default_model": "muse-spark-1.3",
+      "allowed_tools": [],
+      "validation": [
+        "strict JSON schema",
+        "all input IDs exactly once",
+        "no extra fields",
+        "stop/completed status",
+        "confidence does not authorize side effects"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "none",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/structured-output",
+          "sha256": "0f5374672d0a92204aa88ccfdf958b1278f989df6497d62e73cc3057c635aaf0"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/reasoning",
+          "sha256": "f51d74d314772abe6b140b00c09a76358309a133b76a49644c81d19af47afee3"
+        }
+      ],
+      "note": "Start minimal reasoning. Output cap and batch size are experimental controls, not a proof of minimum possible tokens.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "tools.discover",
+      "task": "Load only relevant tool definitions",
+      "engine": "framework_tool_loop",
+      "minimal_input_contract": {
+        "goal": "short text",
+        "namespace": "allowlisted name"
+      },
+      "output_contract": {
+        "tool_refs": "bounded allowlisted definitions"
+      },
+      "protocol": "responses",
+      "default_model": "muse-spark-1.3",
+      "allowed_tools": [
+        "tool_search"
+      ],
+      "validation": [
+        "one tool_search",
+        "defer_loading on functions",
+        "no json_schema in same turn",
+        "no reasoning none",
+        "loaded set stable"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "must be classified by executor before invocation",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/tool-search",
+          "sha256": "0f8181ac3106854b03783651d075f7aad1424d73426f6140dd5513b28c8a0a3a"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/tool-calling",
+          "sha256": "1728aa355f6f4823cca199984764eb678965581e29ba21c21ed5b1b5e741ec6d"
+        }
+      ],
+      "note": "",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "tools.execute",
+      "task": "Execute typed native service calls",
+      "engine": "official_service_clients",
+      "minimal_input_contract": {
+        "tool_name": "allowlisted",
+        "arguments": "schema-validated JSON",
+        "evidence_ref": "immutable ref"
+      },
+      "output_contract": {
+        "call_id": "same correlation ID",
+        "result": "bounded schema or error"
+      },
+      "protocol": null,
+      "default_model": null,
+      "allowed_tools": [
+        "Rucio REST/official client",
+        "FTS API/official client",
+        "Invenio supported API"
+      ],
+      "validation": [
+        "capability policy",
+        "intent recorded before effect",
+        "idempotency and completion evidence",
+        "bounded results",
+        "actual byte and latency counters"
+      ],
+      "status": "native estate connectors UNBOUND; only local inspect_evidence/deploy_workflow/spawn_cell are registered",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "must be classified by executor before invocation",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/tool-calling",
+          "sha256": "1728aa355f6f4823cca199984764eb678965581e29ba21c21ed5b1b5e741ec6d"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/audit-agent-sessions",
+          "sha256": "d4a331b1d514a52c27515a61965877a99789eeb7e8193c487038d05b2c75425b"
+        }
+      ],
+      "note": "The model requests; the executor performs. No general shell or duplicate mover.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "plan.compose",
+      "task": "Compose a fixed-depth typed workflow candidate",
+      "engine": "upstream_agents_sdk",
+      "minimal_input_contract": {
+        "goal": "bounded text",
+        "cell_refs": "capability IDs",
+        "constraints": "budget/tool/sandbox refs"
+      },
+      "output_contract": {
+        "workflow": "nonrecursive DAG",
+        "acceptance_checks": "typed list",
+        "forecast": "per-cell units"
+      },
+      "protocol": "responses",
+      "default_model": "muse-wonder-1.0",
+      "allowed_tools": [
+        "validated cell registry",
+        "official native service tools"
+      ],
+      "validation": [
+        "schema and DAG acyclicity",
+        "parent budget inheritance",
+        "capability intersection",
+        "no secret literals",
+        "independent proof gate"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "must be classified by executor before invocation",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/agent-frameworks",
+          "sha256": "880af88f3fd20d0a94b9b21a49f09251a6b8b7be88a4cb37372bec8c3f9b2209"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/structured-output",
+          "sha256": "0f5374672d0a92204aa88ccfdf958b1278f989df6497d62e73cc3057c635aaf0"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/agent-patterns",
+          "sha256": "1981320f58636835f88710ad6b884b95bc4b12d15d2156c1ed828a6e233b7584"
+        }
+      ],
+      "note": "Upstream Agents SDK owns bounded loops. Complex planning uses Wonder only if authorized; Wonder invocation is not inferred from a Spark fixture.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "workflow.version",
+      "task": "Propose a clone or new workflow version",
+      "engine": "deterministic",
+      "minimal_input_contract": {
+        "parent_version": "immutable digest",
+        "candidate": "typed workflow",
+        "requested_capabilities": "bounded subset"
+      },
+      "output_contract": {
+        "new_version_ref": "immutable digest",
+        "lineage": "parent reference",
+        "validation": "typed decision"
+      },
+      "protocol": null,
+      "default_model": null,
+      "allowed_tools": [],
+      "validation": [
+        "no privilege escalation",
+        "aggregate parent budget",
+        "bounded fanout and depth",
+        "immutable policy/validator definitions",
+        "no cycles or duplicate deployment effects"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "deterministic recomputation; no LLM response cache",
+      "side_effect_class": "none",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/subagent-fanout",
+          "sha256": "cc79c93b51adf7842375c4b2e2bde44630d0b4512528dfa7f0a542fbb4d66440"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/immutable-guardrails",
+          "sha256": "6731462b6572ad87aec12258f311801c9fcd9096b52f00e9709786057d72051d"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/deterministic-replay",
+          "sha256": "c3cf1ab25f602dd9f20c938922efa3aaabf43c988e6249126e0ffbba3e35672a"
+        }
+      ],
+      "note": "Immutable declarative versions and bounded SDK specialists; no unbounded replication or independent budget reset.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "proof.evaluate",
+      "task": "Check a claim against fixed acceptance criteria",
+      "engine": "deterministic",
+      "minimal_input_contract": {
+        "claim_ref": "immutable ID",
+        "measurement_refs": "digests",
+        "verifier_version": "digest"
+      },
+      "output_contract": {
+        "status": "verified / rejected / unverified / blocked",
+        "evidence_refs": "bounded list"
+      },
+      "protocol": null,
+      "default_model": null,
+      "allowed_tools": [],
+      "validation": [
+        "independent verifier",
+        "source and fixture version binding",
+        "falsifiable acceptance criterion",
+        "measured vs derived vs assumed separated"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "deterministic recomputation; no LLM response cache",
+      "side_effect_class": "none",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/goal-tracking",
+          "sha256": "5a1b3f825112bf40db4e984d96f80ec5859c87ff5e2c60ec79ecfbb2c088422c"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/contained-execution",
+          "sha256": "f264713a3c56d7daa89e3473b0017fa6913ea1d610d90e048faf710fa316ce07"
+        }
+      ],
+      "note": "A finite test suite proves its scoped checks, not correctness for every possible future input.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "experiment.revise",
+      "task": "Generate the next candidate after failed measurement",
+      "engine": "sdk_single_call",
+      "minimal_input_contract": {
+        "hypothesis": "short typed statement",
+        "failed_metric": "one counterexample",
+        "allowed_changes": "closed set"
+      },
+      "output_contract": {
+        "candidate_patch": "bounded proposal",
+        "predicted_effect": "typed hypothesis"
+      },
+      "protocol": "chat",
+      "default_model": "muse-spark-1.3",
+      "allowed_tools": [],
+      "validation": [
+        "experiment budget",
+        "one controlled variable",
+        "no unverified claim promotion",
+        "do not repeat identical failing experiment"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "none",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/agent-patterns",
+          "sha256": "1981320f58636835f88710ad6b884b95bc4b12d15d2156c1ed828a6e233b7584"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/cookbook/goal-tracking",
+          "sha256": "5a1b3f825112bf40db4e984d96f80ec5859c87ff5e2c60ec79ecfbb2c088422c"
+        }
+      ],
+      "note": "",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "media.transcribe",
+      "task": "Convert speech to text",
+      "engine": "verified_gateway_media_adapter",
+      "minimal_input_contract": {
+        "audio_ref": "authorized WAV ref",
+        "duration_ms": "measured integer",
+        "mode": "closed enum"
+      },
+      "output_contract": {
+        "transcript": "string",
+        "audioDurationMs": "integer",
+        "turns": "typed list"
+      },
+      "protocol": "asr_transcribe",
+      "default_model": "muse-voice-transcribe-1.0",
+      "allowed_tools": [],
+      "validation": [
+        "request JSON plus audio multipart",
+        "mono supported WAV",
+        "max 10 minutes/32 MB",
+        "duration billed floor seconds",
+        "terminal stream errors checked"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "none",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/speech-to-text",
+          "sha256": "e837dee42eee90a0f25b3ab90787df46295094265899d2cb5643d3858410abe3"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/api-reference/voice/transcribe",
+          "sha256": "2f328572629d7ea0f5433ea6ac31d34dd69e4a0b362c72d262081e69cc6ef54f"
+        }
+      ],
+      "note": "",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "media.audio_understand",
+      "task": "Reason about audio beyond transcription",
+      "engine": "sdk_multimodal",
+      "minimal_input_contract": {
+        "audio_ref": "authorized ref",
+        "question": "bounded text"
+      },
+      "output_contract": {
+        "answer": "schema-limited JSON",
+        "evidence_refs": "time/media refs"
+      },
+      "protocol": "responses",
+      "default_model": "muse-spark-1.2",
+      "allowed_tools": [],
+      "validation": [
+        "media entitlement and consent policy",
+        "model capability",
+        "token/context and byte limits"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "none",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/video-understanding",
+          "sha256": "d150687a54c309278413c5722f80600221691199455039d4943d3abb74a284e8"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/models",
+          "sha256": "28745163a1253cc0910d62c9d28ec432f79c25e88d04ecef2815a25400276a13"
+        }
+      ],
+      "note": "Spark 1.3 audio-understanding quality limitation is why 1.2 is the default here.",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "media.segment",
+      "task": "Produce boxes and masks from images/video",
+      "engine": "official_sam_parser",
+      "minimal_input_contract": {
+        "media_ref": "authorized ref",
+        "prompt": "noun phrase or typed boxes/points",
+        "dimensions": "pixel geometry"
+      },
+      "output_contract": {
+        "objects": "typed immutable snapshots",
+        "masks": "decoded raster refs",
+        "frames_processed": "integer"
+      },
+      "protocol": "responses",
+      "default_model": "sam-3.1",
+      "allowed_tools": [],
+      "validation": [
+        "official Meta-SAM token grammar parser",
+        "coordinate and frame checks",
+        "50-frame minimum per video request",
+        "not token-priced"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "none",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/sam/client-libraries",
+          "sha256": "f411d8bce7b97dc5f1994de7c5daac431a8d37bddc97489ba099b0d3007680fc"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/sam/reading-segmentation",
+          "sha256": "4fb8c017a4eec53eccbd23938b6024c33495c76f6ea6cabbe1c146542d9580c9"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/pricing-rate-limits",
+          "sha256": "6953d7586db423549bf09efeeaccbc3e85ce42cb24f2d0eae136d69e7f976aee"
+        }
+      ],
+      "note": "",
+      "production_native_execution_ready": false
+    },
+    {
+      "id": "media.generate",
+      "task": "Generate or edit a requested image",
+      "engine": "sdk_images",
+      "minimal_input_contract": {
+        "prompt": "bounded text",
+        "image_refs": "optional authorized list",
+        "n": "integer 1..10"
+      },
+      "output_contract": {
+        "images": "returned image refs",
+        "actual_dimensions": "measured",
+        "successful_count": "integer"
+      },
+      "protocol": "images",
+      "default_model": "muse-image-1.0",
+      "allowed_tools": [],
+      "validation": [
+        "correct JSON or multipart edit contract",
+        "returned successful count",
+        "generation failures not counted",
+        "aspect ratio not promised resolution"
+      ],
+      "status": "architecture_contract; runtime implementation and activation tracked separately",
+      "cache_policy": "stable prefix plus exact Bifrost response-cache partition, only when response replay is safe",
+      "side_effect_class": "none",
+      "sources": [
+        {
+          "url": "https://dev.meta.ai/docs/image-generation",
+          "sha256": "3bd7c5761a8a24671b437acc724631dac2e2fbb0608cef6e4b921561d4c47cf0"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/api-reference/images/edit-image",
+          "sha256": "2cfb325a97d8ad6ee9a674e9da2f68445efcebf4811e8c81d062c7d9d150122b"
+        },
+        {
+          "url": "https://dev.meta.ai/docs/pricing-rate-limits",
+          "sha256": "6953d7586db423549bf09efeeaccbc3e85ce42cb24f2d0eae136d69e7f976aee"
+        }
+      ],
+      "note": "",
+      "production_native_execution_ready": false
+    }
+  ],
+  "composition_constraints": [
+    {
+      "id": "responses-json-format",
+      "rule": "Responses strict output uses text.format; Chat uses response_format. Do not exchange them.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/structured-output",
+        "sha256": "0f5374672d0a92204aa88ccfdf958b1278f989df6497d62e73cc3057c635aaf0"
+      }
+    },
+    {
+      "id": "no-recursive-output-schema",
+      "rule": "Recursive JSON schemas are rejected. Flatten workflows into a fixed-depth DAG representation.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/structured-output",
+        "sha256": "0f5374672d0a92204aa88ccfdf958b1278f989df6497d62e73cc3057c635aaf0"
+      }
+    },
+    {
+      "id": "tool-search-final-separation",
+      "rule": "tool_search and json_schema cannot be in the same request. Discover/execute first; validate a strict final result on another turn.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/tool-search#constraints",
+        "sha256": "0f8181ac3106854b03783651d075f7aad1424d73426f6140dd5513b28c8a0a3a"
+      }
+    },
+    {
+      "id": "tool-search-surface",
+      "rule": "Tool search is Responses or Messages only, exactly one tool_search with at least one deferred tool. Deferred functions belong inside namespaces.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/tool-search#constraints",
+        "sha256": "0f8181ac3106854b03783651d075f7aad1424d73426f6140dd5513b28c8a0a3a"
+      }
+    },
+    {
+      "id": "tool-names",
+      "rule": "Function names match ^[a-zA-Z0-9_.-]+$ and have at most one dot. Namespace names contain zero dots.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/tool-calling#function-name-rules",
+        "sha256": "1728aa355f6f4823cca199984764eb678965581e29ba21c21ed5b1b5e741ec6d"
+      }
+    },
+    {
+      "id": "reasoning",
+      "rule": "Muse Wonder and Spark reject none. Minimal is the shortest supported pass. max is only Wonder 1.0 and standard Spark 1.3, not 1.3 Contributor. Reasoning is within billed output.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/reasoning",
+        "sha256": "f51d74d314772abe6b140b00c09a76358309a133b76a49644c81d19af47afee3"
+      }
+    },
+    {
+      "id": "stateless-replay",
+      "rule": "For stateless Responses loops use store:false and include:[reasoning.encrypted_content]; replay intact reasoning items with summary:[] and encrypted_content. Do not combine this include with previous_response_id.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/protocols/responses#reasoning-items",
+        "sha256": "3fb13cc8bbccc5d34a80679c210651f54f64368695323fcfbc26faa79775b3c4"
+      }
+    },
+    {
+      "id": "history-parameters",
+      "rule": "previous_response_id carries conversation history, not current instructions/tools/reasoning options. Resend request-level controls.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/protocols/responses#multi-turn",
+        "sha256": "3fb13cc8bbccc5d34a80679c210651f54f64368695323fcfbc26faa79775b3c4"
+      }
+    },
+    {
+      "id": "call-pairing",
+      "rule": "Stateless function_call_output.call_id must pair with a function_call in the retained input. Preserve message ordering and commentary phase before tool calls.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/protocols/responses#conversation-structure",
+        "sha256": "3fb13cc8bbccc5d34a80679c210651f54f64368695323fcfbc26faa79775b3c4"
+      }
+    },
+    {
+      "id": "client-limits",
+      "rule": "max_tool_calls limits built-in tool calls, not the application total of client tool rounds or spawned agents. Enforce separate application bounds.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/api-reference/responses/schemas#create-response",
+        "sha256": "dbeee8641e98635bd227c6ee490fb4f717e925d0788edf2899ca1685564c522b"
+      }
+    },
+    {
+      "id": "context-not-invoice",
+      "rule": "responses/input_tokens measures reconstructed context; generated usage.input_tokens may sum iterations and differ. Do not use context count as an invoice or final cumulative-usage count as current context occupancy.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/token-counting",
+        "sha256": "77843ce49b0ea0c5eeebf91d7cad34e88c823f91542623b5f5dec76084ca7fec"
+      }
+    },
+    {
+      "id": "stream-terminal",
+      "rule": "HTTP 200 or stream connection success does not prove a completed result. Check terminal completion, errors, valid output, usage and independent acceptance checks.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/error-handling",
+        "sha256": "5a827b565c249193ab3c72c13f0a7a2891e7dc33c993c46eb422692d09802d6a"
+      }
+    },
+    {
+      "id": "media-outputs",
+      "rule": "SAM output_text is a custom geometry grammar, not arbitrary prose or generic JSON. Muse Voice only transcribes, never synthesizes speech.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/sam/client-libraries",
+        "sha256": "f411d8bce7b97dc5f1994de7c5daac431a8d37bddc97489ba099b0d3007680fc"
+      }
+    }
+  ],
+  "cache_layers": [
+    {
+      "layer": "deterministic local evaluation",
+      "model_tokens": 0,
+      "description": "Recompute cheap typed checks or reuse a version-bound verified artifact reference; this is not an LLM response-cache service."
+    },
+    {
+      "layer": "existing Bifrost exact response cache",
+      "model_tokens_on_verified_direct_hit": 0,
+      "description": "Application sends an explicit cache key binding tenant/identity/policy/model/schema/input/evidence version. Request direct lookup, distinguish replayed usage from new upstream usage. Existing Qdrant-backed cache is preserved.",
+      "verification": {
+        "direct_replay_fixture_verified": true,
+        "evidence": {
+          "file": "deploy/minimal-proof-2.json",
+          "present": true,
+          "sha256": "663fef2fdb3892454c1b41cba0923ad922b22fd3ae82bd77096f393aae2c22d3"
+        },
+        "cached_fixture_schema_valid": false,
+        "warning": "The recorded direct hit replayed an incomplete invalid answer. Cache-hit proof is not output-quality proof or cross-identity isolation proof.",
+        "responses_policy": "compatibility adapter requests x-bf-cache-no-store:true; this prevents new writes, not old reads"
+      }
+    },
+    {
+      "layer": "Meta prompt KV cache",
+      "description": "Automatic stable-prefix reuse. cached_tokens is a subset of input, billed at reduced rate, independent of store:false. Stable prefixes first; volatile input last. Optional prompt_cache_key groups compatible prefixes.",
+      "source": {
+        "url": "https://dev.meta.ai/docs/prompt-caching",
+        "sha256": "467c527625c341665d8f867c2bcca318ac8477cf3bae3f085cb003d24d46bcc9"
+      }
+    }
+  ],
+  "accounting": {
+    "prices_date": "2026-10-28",
+    "currency": "USD",
+    "integer_storage": "nano-USD",
+    "token_prices_per_million": {
+      "spark_standard": {
+        "input": 1.25,
+        "cached_input": 0.15,
+        "output": 4.25
+      },
+      "spark_contributor": {
+        "input": 0.1,
+        "cached_input": 0.002,
+        "output": 0.2
+      },
+      "wonder": {
+        "input": 4.0,
+        "cached_input": 0.2,
+        "output": 20.0
+      }
+    },
+    "other_units": {
+      "successful_image": 0.01,
+      "transcription_audio_hour": 0.18,
+      "segmentation_image": 0.0025,
+      "segmentation_video_frame": 0.0002,
+      "web_search_query": 0.0025
+    },
+    "sam_minimum_frames_each_video": 50,
+    "source": {
+      "url": "https://dev.meta.ai/docs/pricing-rate-limits",
+      "sha256": "6953d7586db423549bf09efeeaccbc3e85ce42cb24f2d0eae136d69e7f976aee"
+    },
+    "physical_energy": "not collected or required; no physical-energy claim",
+    "metrics": [
+      "forecast_context_tokens",
+      "reported_input_tokens",
+      "reported_cached_tokens",
+      "reported_output_tokens",
+      "reported_reasoning_tokens",
+      "measured_request_body_bytes",
+      "measured_response_body_bytes",
+      "source_bytes_represented",
+      "file_IO_bytes_if_measured",
+      "network_bytes_if_measured",
+      "wall_latency_ms",
+      "cache_layer_and_hit_type",
+      "derived_cost_nusd",
+      "unresolved_attempt_reservation_nusd",
+      "derived_payload_bits",
+      "measured_cpu_time_seconds_or_null",
+      "measured_ram_peak_bytes_or_null",
+      "measured_staging_io_bytes_or_null"
+    ],
+    "forecast_warning": "No cache hit, retry refund, deterministic completion, or universal minimum cost is assumed."
+  },
+  "proof_loop": {
+    "states": [
+      "unverified",
+      "hypothesis",
+      "bounded_experiment",
+      "measured",
+      "independently_validated",
+      "verified_for_declared_scope",
+      "rejected",
+      "blocked"
+    ],
+    "required_record": [
+      "claim_id",
+      "scope",
+      "acceptance_criterion",
+      "baseline_version",
+      "candidate_version",
+      "fixture_digest",
+      "source_digest",
+      "measurement_method",
+      "actual_metrics",
+      "verifier_version",
+      "decision",
+      "cost_and_attempts"
+    ],
+    "revision_rule": "A rejected claim produces a changed candidate or a stated blocker, not an unchanged retry loop. Preserve all failures.",
+    "truth_boundary": "Model confidence is not calibrated probability or proof. A finite successful experiment does not establish universal correctness. Deterministic policy/schema guarantees require enforcement and scoped adversarial tests.",
+    "observability": [
+      "run_id",
+      "agent_id",
+      "parent_id",
+      "workflow_version",
+      "cell_id",
+      "tool_call_id",
+      "status",
+      "intent_before_effect",
+      "start_and_terminal_timestamps",
+      "inputs_and_outputs_or_private_refs",
+      "validation_decision",
+      "usage_and_cache",
+      "error_or_stall",
+      "evidence_refs"
+    ],
+    "sources": [
+      {
+        "url": "https://dev.meta.ai/docs/cookbook/audit-agent-sessions",
+        "sha256": "d4a331b1d514a52c27515a61965877a99789eeb7e8193c487038d05b2c75425b"
+      },
+      {
+        "url": "https://dev.meta.ai/docs/cookbook/deterministic-replay",
+        "sha256": "c3cf1ab25f602dd9f20c938922efa3aaabf43c988e6249126e0ffbba3e35672a"
+      },
+      {
+        "url": "https://dev.meta.ai/docs/cookbook/contained-execution",
+        "sha256": "f264713a3c56d7daa89e3473b0017fa6913ea1d610d90e048faf710fa316ce07"
+      }
+    ]
+  },
+  "activation_blockers": [
+    {
+      "id": "worker_auth",
+      "scope": "scoped Meta machine authentication",
+      "status": "verified_in_recorded_scope",
+      "evidence": {
+        "file": "deploy/bifrost-runtime-proof.json",
+        "present": true,
+        "sha256": "70ee3598420d015ec834788cbcba03043162e7024db14cc9acf2de770923de3c"
+      },
+      "finding": "Current scoped native call succeeds",
+      "exit_criterion": "Supported native machine-auth path passes valid/invalid/missing-key and cross-provider denial tests without admin credentials in workers."
+    },
+    {
+      "id": "voice_body",
+      "scope": "file transcription",
+      "status": "blocked",
+      "finding": "Existing path override does not establish translation from model/file multipart to request/audio multipart.",
+      "exit_criterion": "Exact supplied Meta schema body reaches the existing gateway with scoped governance, validation and measured duration."
+    },
+    {
+      "id": "voice_ws_auth",
+      "scope": "realtime transcription",
+      "status": "unverified",
+      "finding": "Meta expects access token inside handshake, while workers must hold only scoped Bifrost identity.",
+      "exit_criterion": "Verified gateway credential translation and policy enforcement; no upstream Meta key exposed to clients."
+    },
+    {
+      "id": "response_loop",
+      "scope": "agent orchestration and tool search",
+      "status": "unverified",
+      "finding": "Live SDK tool-loop acceptance is pending; mock/source checks alone do not establish runtime conformance",
+      "exit_criterion": "Synthetic bounded tool loop preserves call IDs, encrypted replay, JSON final validation, usage, cache isolation and errors.",
+      "evidence": {
+        "file": "deploy/live-sdk-proof.json",
+        "present": false
+      }
+    },
+    {
+      "id": "self_hosted",
+      "scope": "Spark Open / Glimmer",
+      "status": "not_configured",
+      "exit_criterion": "A real endpoint, matching model metadata, measured latency/CPU/RAM/cost and gateway routing are established without changing unrelated GPU workloads."
+    },
+    {
+      "id": "global_scheduling",
+      "scope": "production Temporal orchestration",
+      "status": "blocked_readiness",
+      "evidence": "SCHEDULING.md",
+      "engine": "bare Temporal Python SDK 1.34.0",
+      "local_test_scope": "15 official local test-server tests cover stage scheduling, signals, retries and replay; no estate server was activated",
+      "finding": "Dedicated namespace, authenticated server/capacity/history review and one shared admission authority are not established",
+      "durability_scope": "existing upstream Assembly is one non-retried Activity; durability is stage-level, not transparent per-model-turn restart"
+    }
+  ],
+  "explicit_non_claims": [
+    "No production file moves, hashing, deletion, mounts, retention schedules or native estate effects are performed by this matrix.",
+    "Only recorded scoped synthetic SDK/cache fixtures are proved; no continuous global worker, hosted tool_search, media endpoint or universal task-quality readiness is inferred.",
+    "Registered model IDs do not establish API team entitlement for all models.",
+    "No universal perfect classification, minimum-token result, calibrated probability or physical-energy guarantee is claimed."
+  ],
+  "compatibility_adapter": {
+    "implementation": "src/meta_pipeline/bifrost_compat.py",
+    "native_mechanism": "documented Bifrost extra_params envelope plus x-bf-passthrough-extra-params:true",
+    "allowlist": [
+      "minimal reasoning effort",
+      "the SAME original already-validated encrypted Responses input"
+    ],
+    "forbidden_overrides": [
+      "model/provider",
+      "URL",
+      "credentials",
+      "tool inventory",
+      "output cap",
+      "arbitrary caller extras"
+    ],
+    "new_gateway": false,
+    "no_store_responses": true,
+    "chat_fixture_verified": true,
+    "responses_fixture_verified": false,
+    "input_byte_tradeoff": "Preserving original encrypted input can duplicate ingress bytes; actual HTTP-body byte measurements must include it."
+  },
+  "measured_experiments": {
+    "minimal_reasoning": {
+      "baseline": {
+        "file": "deploy/minimal-proof-1.json",
+        "present": true,
+        "sha256": "4ecd87df721638a4db207509ed10062cbd82af5a5b95809b9e9d942c5656eb95"
+      },
+      "candidate": {
+        "file": "deploy/native-minimal-proof.json",
+        "present": true,
+        "sha256": "c9801b6ae5fcade1bc4131627015e2a1a1d0d3bea5a948b64fe4e820bc4bc2d2"
+      },
+      "baseline_schema_valid": false,
+      "candidate_schema_valid": true,
+      "baseline_input_tokens": 15,
+      "candidate_input_tokens": 15,
+      "baseline_output_tokens": 128,
+      "candidate_output_tokens": 59,
+      "baseline_reasoning_tokens": 126,
+      "candidate_reasoning_tokens": 45,
+      "candidate_request_bytes": 480,
+      "candidate_response_bytes": 1034,
+      "candidate_elapsed_seconds": 1.008949721,
+      "scope": "One synthetic controlled fixture; no population-quality, causal-isolation, global minimum-token or throughput guarantee"
+    },
+    "upstream_sdk_loop": {}
+  },
+  "communication_contract": {
+    "document": {
+      "id": "diatonic-13-v1",
+      "version": 1,
+      "channels": [
+        {
+          "track": 1,
+          "name": "standalone_terminal",
+          "codon": "SSS",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 2,
+          "name": "search",
+          "codon": "SST",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 3,
+          "name": "pattern_builders",
+          "codon": "SSA",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 4,
+          "name": "response_filters",
+          "codon": "SAM",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 5,
+          "name": "read_files",
+          "codon": "STM",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 6,
+          "name": "hooks",
+          "codon": "SMM",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 7,
+          "name": "cost_routes",
+          "codon": "ASS",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 8,
+          "name": "write_update",
+          "codon": "AST",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 9,
+          "name": "parallel_tmux",
+          "codon": "ASM",
+          "kind": "reference_partition",
+          "record_count": 900
+        },
+        {
+          "track": 10,
+          "name": "causal_sequence",
+          "codon": "TSS",
+          "kind": "control",
+          "record_count": null
+        },
+        {
+          "track": 11,
+          "name": "alternative_plans",
+          "codon": "TTM",
+          "kind": "control",
+          "record_count": null
+        },
+        {
+          "track": 12,
+          "name": "forecast",
+          "codon": "TAM",
+          "kind": "control",
+          "record_count": null
+        },
+        {
+          "track": 13,
+          "name": "coordination",
+          "codon": "MMM",
+          "kind": "control",
+          "record_count": null
+        }
+      ],
+      "records": 8100,
+      "control_tracks_are_recipe_partitions": false,
+      "opcode_bits": 78,
+      "opcode_storage_bytes": 10,
+      "frame_scope": "opcode symbols only; arguments, identity, policy, evidence and state are separate",
+      "encoding_is_proof": false,
+      "future_observations_available": false,
+      "authority": "coordinator-bound policy plus downstream native control plane",
+      "model_role": "bounded canonicalizer/proposer; never its own verifier",
+      "abstain_stages": [
+        "route",
+        "translation",
+        "validation",
+        "handler"
+      ],
+      "formal_verification": "not implemented; schema checks and finite tests are not Lean proofs"
+    },
+    "sha256": "b42f4a5214f9c58b38e7d37fb4cd90268a580ab9d51c3afd651172ebee74e036",
+    "schemas": "deploy/communication-contract.json",
+    "runtime_scope": "local SDK, canonical-call guardrails and instrumented audit/monitor",
+    "regression_gate": "labelled finite replay; LOST_CORRECT or missing candidates fail; no automatic native promotion",
+    "native_estate_protocols_replaced": false
+  }
+}

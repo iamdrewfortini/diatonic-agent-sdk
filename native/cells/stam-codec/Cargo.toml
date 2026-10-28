@@ -1,0 +1,11 @@
+[package]
+name = "diatonic-stam-codec"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]

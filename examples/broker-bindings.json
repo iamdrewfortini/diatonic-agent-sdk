@@ -1,0 +1,41 @@
+{
+  "version": "bindings-v1",
+  "bindings": [
+    {
+      "kind": "ProviderBinding",
+      "binding": {
+        "id": "provider-1",
+        "version": "1",
+        "source_sha256": "c31defbff9095632cac24988937e4277f8ec509f70537e3dd780b773a9d152af",
+        "gateway_id": "bifrost",
+        "routing_owner": "Bifrost",
+        "enabled": false,
+        "evidence_ref": "pending:independent-provider-admission-and-unattended-secret-binding"
+      }
+    },
+    {
+      "kind": "ProviderBinding",
+      "binding": {
+        "id": "provider-2",
+        "version": "1",
+        "source_sha256": "c31defbff9095632cac24988937e4277f8ec509f70537e3dd780b773a9d152af",
+        "gateway_id": "bifrost",
+        "routing_owner": "Bifrost",
+        "enabled": false,
+        "evidence_ref": "pending:independent-provider-admission-and-unattended-secret-binding"
+      }
+    },
+    {
+      "kind": "ProviderBinding",
+      "binding": {
+        "id": "provider-3",
+        "version": "1",
+        "source_sha256": "c31defbff9095632cac24988937e4277f8ec509f70537e3dd780b773a9d152af",
+        "gateway_id": "bifrost",
+        "routing_owner": "Bifrost",
+        "enabled": false,
+        "evidence_ref": "pending:independent-provider-admission-and-unattended-secret-binding"
+      }
+    }
+  ]
+}

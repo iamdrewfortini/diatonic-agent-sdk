@@ -1,0 +1,6 @@
+# No third-party dependencies. Regenerate only with the approved Rust toolchain.
+version = 4
+
+[[package]]
+name = "diatonic-stam-codec"
+version = "0.1.0"

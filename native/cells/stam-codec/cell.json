@@ -1,0 +1,14 @@
+{
+  "schema_version": "native-cell-v1",
+  "id": "stam-codec",
+  "version": "0.1.0",
+  "responsibility": "encode existing 39-symbol STAM opcode profile into ten bytes",
+  "public_operations": [
+    "pack_profile"
+  ],
+  "schema": "schemas/stam-codec-v1.json",
+  "schema_sha256": "2211efaf9b800395a38643a0646355f6ec02102e3d36e4a028a3cc20fc96057b",
+  "source_sha256": "5013a6753234116717e9fa35314bb67afb569178679d2d0c54d8a007e3ac351d",
+  "authority": "none; pure encoding only",
+  "runtime_binding": "unbound; Rust-only library API, no Python FFI asserted"
+}

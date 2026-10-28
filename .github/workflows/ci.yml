@@ -1,0 +1,33 @@
+name: SDK CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test-and-package:
+    runs-on: ubuntu-latest
+    container: python:3.12-bookworm
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install public hash-locked dependencies
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install --require-hashes -r requirements-ci.lock
+      - name: Build and install candidate wheel
+        run: |
+          .venv/bin/python -m pip wheel --no-index --no-deps --no-build-isolation --wheel-dir dist .
+          .venv/bin/python -m pip install --no-index --no-deps dist/*.whl
+          .venv/bin/python -m pip check
+          .venv/bin/python native/validate_cells.py
+      - name: Test source and installed wheel
+        run: |
+          PYTHONPATH=src .venv/bin/python -m pytest -q --junitxml=source-tests.xml
+          .venv/bin/python -m pytest -q --junitxml=wheel-tests.xml
+          .venv/bin/meta-pipeline --help
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sdk-wheel-and-test-results
+          path: |
+            dist/
+            source-tests.xml
+            wheel-tests.xml
