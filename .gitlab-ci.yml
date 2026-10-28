@@ -2,7 +2,7 @@ stages: [verify]
 sdk-test-and-package:
   stage: verify
   image: python:3.12-bookworm
-  tags: [k8s]
+  tags: [diatonic-public]
   script:
     - python -m venv .venv
     - .venv/bin/python -m pip install --require-hashes -r requirements-ci.lock
