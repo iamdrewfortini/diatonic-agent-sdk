@@ -21,4 +21,5 @@ meta-pipeline = "meta_pipeline.cli:main"
 testpaths = ["tests"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
+markers = ["private_reference: requires a separately held private reference bundle"]
 

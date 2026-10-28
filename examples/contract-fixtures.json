@@ -15,7 +15,7 @@
       "truth": "unknown"
     }
   ],
-  "fixture_sha256": "5de1c6556f8d18e59642f9a12e766521db07dcd90b765d14f21fb3cdca7aa3bd",
+  "fixture_sha256": "3ba5c96ea2af7dcd7521baaa3c06eee49b50c3c855cae5101970b25c1b4ae9fb",
   "name": "synthetic-contract",
   "provenance": {
     "authority": "synthetic fixture included in this repository",

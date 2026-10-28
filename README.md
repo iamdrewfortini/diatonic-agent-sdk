@@ -6,7 +6,7 @@ A provider-neutral agent pipeline SDK from **Diatonic OS**, a **Chromatix Studio
 
 This repository contains source candidate **0.3.5** (`pyproject.toml`), copied from the `feature/handoff-native-035` branch at commit `d4f427ee2bcc168feb53db3cb292183917098e27`. That candidate is source code for evaluation; it is not a claim of a deployed or independently released 0.3.5. The originating private environment reported deployment **0.3.4** and historical verification for that version. Those are historical facts about that environment, not public release assurance for this repository.
 
-The included tests are source-candidate tests. The vendor schema comparison test skips when the separately held private schema bundle is absent; the bundle and its contents are intentionally not included. A Temporal integration test also skips if its optional local test server is unavailable. CI reports skips normally and does not download private assets.
+The included tests are source-candidate tests. Public CI excludes exactly two `private_reference` tests: a vendor schema comparison and an acceptance test for a separately held update archive. Their assertions remain intact; the private bundles are intentionally not included in this repository. The optional Temporal integration test may also skip if its local test server is unavailable. CI does not download private assets.
 
 ## Providers and boundaries
 

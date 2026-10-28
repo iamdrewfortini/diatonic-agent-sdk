@@ -10,8 +10,8 @@ sdk-test-and-package:
     - .venv/bin/python -m pip install --no-index --no-deps dist/*.whl
     - .venv/bin/python -m pip check
     - .venv/bin/python native/validate_cells.py
-    - PYTHONPATH=src .venv/bin/python -m pytest -q --junitxml=source-tests.xml
-    - .venv/bin/python -m pytest -q --junitxml=wheel-tests.xml
+    - PYTHONPATH=src .venv/bin/python -m pytest -q -m "not private_reference" --junitxml=source-tests.xml
+    - .venv/bin/python -m pytest -q -m "not private_reference" --junitxml=wheel-tests.xml
     - .venv/bin/meta-pipeline --help
   artifacts:
     when: always

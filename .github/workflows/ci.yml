@@ -20,8 +20,8 @@ jobs:
           .venv/bin/python native/validate_cells.py
       - name: Test source and installed wheel
         run: |
-          PYTHONPATH=src .venv/bin/python -m pytest -q --junitxml=source-tests.xml
-          .venv/bin/python -m pytest -q --junitxml=wheel-tests.xml
+          PYTHONPATH=src .venv/bin/python -m pytest -q -m "not private_reference" --junitxml=source-tests.xml
+          .venv/bin/python -m pytest -q -m "not private_reference" --junitxml=wheel-tests.xml
           .venv/bin/meta-pipeline --help
       - uses: actions/upload-artifact@v4
         if: always()

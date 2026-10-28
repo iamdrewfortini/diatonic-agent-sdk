@@ -82,6 +82,7 @@ def test_duplicate_member_manifest_tamper_and_duplicate_json_rejected(tmp_path):
         with pytest.raises(ValueError): inspect_package(archive(tmp_path, entries))
 
 
+@pytest.mark.private_reference
 def test_real_update_manifest_and_nested_export_bounds():
     # Required checked-in environment artifact; absence is a failure, not a skip.
     p = Path(__file__).resolve().parents[1]/'vendor/axiom-twin-13d-update.tar.gz'

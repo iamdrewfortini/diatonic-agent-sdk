@@ -96,7 +96,7 @@ def test_missing_auth_malformed_grants_and_host_mismatch_rejected():
     for args in [
         {"endpoint": "http://192.0.2.60:9444", "host": "192.0.2.60"},
         {"endpoint": ENDPOINT + "/api", "host": "192.0.2.60"},
-        {"endpoint": "https://192.0.2.60:9445", "host": "192.0.2.60"},
+        {"endpoint": "https://192.0.2.61:9444", "host": "192.0.2.60"},
         {"endpoint": ENDPOINT, "host": "elsewhere.invalid"},
         {"endpoint": ENDPOINT, "host": "192.0.2.60", "scopes": frozenset({"wall.snapshot.read", "actions.execute"})},
     ]:

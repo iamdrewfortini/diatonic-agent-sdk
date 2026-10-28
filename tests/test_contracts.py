@@ -4,6 +4,7 @@ from meta_pipeline.contracts import ChatRequest, ImageRequest, VoiceRequest, Voi
 from meta_pipeline.models import MODELS, Workload, route
 from meta_pipeline.gateway import measured_usage
 
+@pytest.mark.private_reference
 def test_supplied_schema_request_fields():
     root=Path(__file__).parents[1]/"vendor/Meta_Schemas/Meta_Schemas"
     if not root.exists():pytest.skip("Private vendor bundle is not installed")
